@@ -7,6 +7,8 @@ importFrom("stats", "coef", "rnorm", "sd")
 
 export("coef.genlasso",
        "cv.trendfilter",
+       "downdateT",
+       "downdateW",
        "fusedlasso1d",
        "fusedlasso2d",
        "fusedlasso",
@@ -31,7 +33,9 @@ export("coef.genlasso",
        "print.summary.genlasso",
        "softthresh",
        "summary.genlasso",
-       "trendfilter")
+       "trendfilter",
+       "updateT",
+       "updateW")
 
 S3method("coef", "genlasso")
 S3method("plot", "cv.trendfilter")
