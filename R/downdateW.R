@@ -17,6 +17,7 @@ downdateW <- function(Q1, Q2, R, col, column_indices) {
 
   Q1 = matrix(a$Q1, nrow = m)
   R = matrix(a$R, nrow = n)
+  column_indices = a$column_indices
 
   # Re-structure: add a column to Q2, delete one from Q1, and trim R
   Q2 = cbind(Q2, Q1[, n])
