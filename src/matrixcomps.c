@@ -53,7 +53,8 @@ void C_colrot(double *A, int j1, int j2, int m, int n, int i1, int i2, double c,
 // where Q1 is m x n and R is n x n. The other part of
 // the Q matrix, Q2 m x (m-n), isn't needed so it isn't
 // passed for efficiency
-void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np) {
+void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np, int *column_indices) {
+  
   int j0,m,n,j;
   j0 = *j0p;
   m = *mp;
@@ -69,6 +70,11 @@ void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np) {
 
     // Post-mutiply Q1
     C_colrot(Q1,j-1,j,m,n,0,m-1,c,s);
+
+    // Update the column indices to reflect the pivot
+    int temp = column_indices[j - 1];
+    column_indices[j - 1] = column_indices[j];
+    column_indices[j] = temp;
   }
 }
 
