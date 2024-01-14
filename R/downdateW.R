@@ -23,6 +23,6 @@ downdateW <- function(Q1, Q2, R, col, column_indices) {
   Q1 = Q1[, -n, drop = FALSE]
   R = R[-n, -col, drop = FALSE]
 
-  return(list(Q1 = Q1, Q2 = Q2, R = R))
+  return(list(Q1 = Q1, Q2 = Q2, R = R, column_indices=column_indices))
 }
 
