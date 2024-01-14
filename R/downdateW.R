@@ -12,7 +12,7 @@ downdateW <- function(Q1,Q2,R,col,column_indices) {
     col=as.integer(col-1),
     m=as.integer(m),
     n=as.integer(n),
-    column_indices=as.double(column_indices),     
+    column_indices=as.integer(column_indices),     
     PACKAGE="genlasso")
 
   Q1 = matrix(a$Q1,nrow=m)
