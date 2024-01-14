@@ -17,7 +17,7 @@ extern void C_maketri4(double *y, double *A, double *Q, double *R, int *m1p, int
 
 static const R_CMethodDef R_CDef[] = {
    CALLDEF(C_colrot, 9),
-   CALLDEF(C_downdate1, 5),
+   CALLDEF(C_downdate1, 6),
    CALLDEF(C_downdate2, 4),
    CALLDEF(C_givens, 4),
    CALLDEF(C_maketri1, 6),
