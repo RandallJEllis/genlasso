@@ -88,6 +88,7 @@ void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np, int *column_
       int temp = column_indices[j];
       column_indices[j] = column_indices[j - 1];
       column_indices[j - 1] = temp;
+    }
   }
 }
 
