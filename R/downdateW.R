@@ -2,7 +2,7 @@
 # been deleted. Here Q1 is m x n, Q2 is m x k, and
 # R is n x n.
 
-downdateW <- function(Q1,Q2,R,col) {
+downdateW <- function(Q1,Q2,R,col,column_indices) {
   m = nrow(Q1)
   n = ncol(Q1)
 
@@ -12,6 +12,7 @@ downdateW <- function(Q1,Q2,R,col) {
     col=as.integer(col-1),
     m=as.integer(m),
     n=as.integer(n),
+    column_indices=as.double(column_indices),     
     PACKAGE="genlasso")
 
   Q1 = matrix(a$Q1,nrow=m)
