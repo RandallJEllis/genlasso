@@ -72,9 +72,22 @@ void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np, int *column_
     C_colrot(Q1,j-1,j,m,n,0,m-1,c,s);
 
     // Update the column indices to reflect the pivot
-    int temp = column_indices[j - 1];
-    column_indices[j - 1] = column_indices[j];
-    column_indices[j] = temp;
+    //int temp = column_indices[j - 1];
+    //column_indices[j - 1] = column_indices[j];
+    //column_indices[j] = temp;
+
+    // Move the downdated column to the end
+    int downdated_col = column_indices[j0];
+    for (j = j0; j < n - 1; j++) {
+      column_indices[j] = column_indices[j + 1];
+    }
+    column_indices[n - 1] = downdated_col;
+  
+    // Rearrange the columns to their original position if possible
+    for (j = n - 1; j > 0 && column_indices[j] > downdated_col; j--) {
+      int temp = column_indices[j];
+      column_indices[j] = column_indices[j - 1];
+      column_indices[j - 1] = temp;
   }
 }
 
