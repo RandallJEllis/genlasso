@@ -55,10 +55,11 @@ void C_colrot(double *A, int j1, int j2, int m, int n, int i1, int i2, double c,
 // passed for efficiency
 void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np, int *column_indices) {
   
-  int j0,m,n,j;
+  int j0,m,n,j,column_indices;
   j0 = *j0p;
   m = *mp;
   n = *np;
+  column_indices = *column_indices;
 
   double c,s;
   for (j=j0+1; j<n; j++) {
