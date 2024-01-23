@@ -2,7 +2,7 @@
 # been deleted. Here Q1 is m x n, Q2 is m x k, and
 # R is n x n.
 
-downdateW <- function(Q1, Q2, R, col, column_indices) {
+downdateW <- function(Q1, Q2, R, col) {
   m = nrow(Q1)
   n = ncol(Q1)
 
@@ -12,18 +12,16 @@ downdateW <- function(Q1, Q2, R, col, column_indices) {
          j0p = as.integer(col - 1),
          mp = as.integer(m),
          np = as.integer(n),
-         column_indices = as.integer(column_indices),
          PACKAGE = "genlasso")
 
   Q1 = matrix(a$Q1, nrow = m)
   R = matrix(a$R, nrow = n)
-  column_indices = a$column_indices
 
   # Re-structure: add a column to Q2, delete one from Q1, and trim R
   Q2 = cbind(Q2, Q1[, n])
   Q1 = Q1[, -n, drop = FALSE]
   R = R[-n, -col, drop = FALSE]
 
-  return(list(Q1 = Q1, Q2 = Q2, R = R, column_indices=column_indices))
+  return(list(Q1 = Q1, Q2 = Q2, R = R))
 }
 
