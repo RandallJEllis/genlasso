@@ -6,7 +6,7 @@
 extern void C_givens(double a, double b, double *c, double *s);
 extern void C_rowrot(double *A, int i1, int i2, int m, int n, int j1, int j2, double c, double s);
 extern void C_colrot(double *A, int j1, int j2, int m, int n, int i1, int i2, double c, double s);
-extern void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np, int *column_indices);
+extern void C_downdate1(double *Q1, double *R, int *j0p, int *mp, int *np);
 extern void C_update1(double *Q2, double *w, int *mp, int *kp);
 extern void C_downdate2(double *Q, double *R, int *mp, int *np);
 extern void C_update2(double *y, double *D, double *r, int *mp, int *np, int *qp);
@@ -17,7 +17,7 @@ extern void C_maketri4(double *y, double *A, double *Q, double *R, int *m1p, int
 
 static const R_CMethodDef R_CDef[] = {
    CALLDEF(C_colrot, 9),
-   CALLDEF(C_downdate1, 6),
+   CALLDEF(C_downdate1, 5),
    CALLDEF(C_downdate2, 4),
    CALLDEF(C_givens, 4),
    CALLDEF(C_maketri1, 6),
